@@ -572,12 +572,13 @@ new file mode 100644
 index 0000000000..f907d1f1cb
 --- /dev/null
 +++ b/epsilon/apps/home/ios/apps.cpp
-@@ -0,0 +1,1710 @@
+@@ -0,0 +1,1711 @@
 +/* iOS-OS apps: Settings, Clock (world clock, stopwatch, timer), Weather,
 + * Calendar, Notes and Games. They run inside the home app, full screen,
 + * opened with a zoom from their icon (see shell.cpp). */
 +
 +#include <apps/apps_container.h>
++#include <ion.h>
 +#include <ion/backlight.h>
 +#include <ion/battery.h>
 +#include <ion/timing.h>
@@ -847,7 +848,7 @@ index 0000000000..f907d1f1cb
 +      fmt(buffer, size, "iOS-OS 1.0");
 +      break;
 +    case IdEpsilon:
-+      fmt(buffer, size, "26.4.0");
++      fmt(buffer, size, "%s", Ion::softwareVersion());
 +      break;
 +    case IdApps:
 +      fmt(buffer, size, "%d", s.numberOfSlots + k_dockSize - numberOfGames());
